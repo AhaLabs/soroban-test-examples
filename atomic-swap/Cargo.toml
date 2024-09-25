@@ -1,5 +1,5 @@
 [package]
-name = "custom-types"
+name = "atomic-swap"
 version = "0.0.0"
 edition = "2021"
 publish = false
