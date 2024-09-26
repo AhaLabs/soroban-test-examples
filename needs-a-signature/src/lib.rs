@@ -6,8 +6,14 @@ pub struct SignedContract;
 
 #[contractimpl]
 impl SignedContract {
-    pub fn hello(env: Env, to: String, sign_with: Address) -> Vec<String> {
-        sign_with.require_auth();
+    pub fn hello(
+        env: Env,
+        to: String,
+        user_signer: Address,
+        contract_signer: Address,
+    ) -> Vec<String> {
+        user_signer.require_auth();
+        contract_signer.require_auth();
         vec![&env, String::from_str(&env, "Hello"), to]
     }
 }
